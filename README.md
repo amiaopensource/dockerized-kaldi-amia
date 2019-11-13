@@ -41,7 +41,7 @@ docker run -it --name kaldi_pua --volume C:\Users\***username_here***\Desktop\au
 
 ### Run speech-to-text batch
 
-- On your local machine, run `prep_files.py` (located in the Scripts folder) on the directory of files you wish to process. This will run on WAV, MP3, FLAC, AVI, MOV, MP4, MXF, and MKV files, and will drop the pro-processed  media files into the shared `/audio_in` directory. 
+- On your local machine, run `prep_files.py` (located in the Scripts folder) on the directory of files you wish to process. This will run on WAV, MP3, FLAC, AVI, MOV, MP4, MXF, and MKV files, and will drop the pre-processed  media files into the shared `/audio_in` directory. 
 
 ```
 prep_files.py -i [target directory]
