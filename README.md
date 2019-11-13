@@ -3,7 +3,7 @@
 ### References
 
   - Kaldi: [http://kaldi-asr.org/](http://kaldi-asr.org/)
-  - Pop Up Archive Kaldi release and install guide: [https://github.com/popuparchive/american-archive-kaldi](https://github.com/popuparchive/american-archive-kaldi)
+  - Pop Up Archive Kaldi release and install guide: [https://github.com/dericed/american-archive-kaldi](https://github.com/popuparchive/american-archive-kaldi)
   - PUA model files: [https://sourceforge.net/projects/popuparchive-kaldi/files/](https://sourceforge.net/projects/popuparchive-kaldi/files/)
   - American Archive of Public Broadcasting (source of training set): [http://americanarchive.org/](http://americanarchive.org/)
 
