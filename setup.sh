@@ -28,12 +28,10 @@ cd /audio_in/
 #ffmpeg -i """$file""" -ac 1 -ar 16000 """$base"""_16kHz.wav;
 #done
 
-mkdir /audio_in_16khz/
-mv *_16kHz.wav /audio_in_16khz/
+#mkdir /audio_in_16khz/
+#mv *_16kHz.wav /audio_in_16khz/
 
 ######### Starting the batch transcription run ##########
 
-python /kaldi/egs/american-archive-kaldi/run_kaldi.py /kaldi/egs/american-archive-kaldi/sample_experiment/ /audio_in_16khz/ && \
+python /kaldi/egs/american-archive-kaldi/run_kaldi.py /kaldi/egs/american-archive-kaldi/sample_experiment/ /audio_in/ && \
 rsync -a /kaldi/egs/american-archive-kaldi/sample_experiment/output/ /audio_in/transcripts/
-
-rm -r /audio_in_16khz/
