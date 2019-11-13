@@ -101,28 +101,10 @@ nj=2
 
 ### Manual method
 
-Alternately, you can prepare your files and start the batch run manually.
-
-- Add some media files to the `/audio_in/` directory.
+Alternately, you can prepare your files and start the batch run manually. Prepare the files using the `prep_files.py` script. This will create 16 kHz WAV files of any wav, mp3, flac, mp4, avi, mov, mkv, or mxf files in the target directory
 
 ```
-cd /audio_in/
-```
-
-- Make a 16kHz WAV copy of each file with `ffmpeg`.
-
-```
-for file in *.{wav,mp3,mp4,WAV,MP3,MP4}; do
-base=$(basename """$file""" .mp3);
-ffmpeg -i """$file""" -ac 1 -ar 16000 """$base"""_16kHz.wav;
-done
-```
-
-- Now move the 16kHz WAV files to a separate directory.
-
-```
-mkdir /audio_in_16khz/
-mv *_16kHz.wav /audio_in_16khz/
+prep_files.py -i [target directory]
 ```
 
 - Start the batch transcription run like so.
