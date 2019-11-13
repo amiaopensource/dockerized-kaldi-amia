@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /audio_in/
+#cd /audio_in/
 
 ## Now add media files to /audio_in/
 
