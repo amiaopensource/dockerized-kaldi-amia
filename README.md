@@ -116,7 +116,7 @@ prep_files.py -i [target directory]
 - Start the batch transcription run like so.
 
 ```
-python /kaldi/egs/american-archive-kaldi/run_kaldi.py /kaldi/egs/american-archive-kaldi/sample_experiment/ /audio_in_16khz/
+python /kaldi/egs/american-archive-kaldi/run_kaldi.py /kaldi/egs/american-archive-kaldi/sample_experiment/ /audio_in/
 ```
 
 - When Kaldi finishes processing an audio file, plain text and JSON transcripts will be written here:
