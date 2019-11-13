@@ -103,7 +103,7 @@ nj=2
 
 Alternately, you can prepare your files and start the batch run manually. Prepare the files using the `prep_files.py` script. This will create 16 kHz WAV files of any wav, mp3, flac, mp4, avi, mov, mkv, or mxf files in the target directory. 
 
-Manually prepping the files on your local computer is ideal, because it processing them through the docker container is very slow. In order to use this scrupt you'll have to have `ffmpeg` installed.
+Manually prepping the files on your local computer is ideal, because it processing them through the docker container is very slow. In order to use this script you'll have to have `ffmpeg` installed.
 
 ```
 prep_files.py -i [target directory]
