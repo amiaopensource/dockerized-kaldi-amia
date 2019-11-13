@@ -3,6 +3,7 @@
 
 import os, sys
 import argparse                     # used for parsing input arguments
+import subprocess
 
 def main():
 
@@ -18,8 +19,9 @@ def main():
         quit()
 
     in_path = args.i
-    out_path_root = "/audio_in/"
-    out_path_sub = "/audio_in/audio_in_16khz/"
+    my_dir = os.path.expanduser('~/Desktop')
+    out_path_root = my_dir + "/audio_in/"
+    out_path_sub = my_dir + "/audio_in/audio_in_16khz/"
 
     if not os.path.exists(out_path_root):
         os.mkdir(out_path_root)
@@ -33,9 +35,9 @@ def main():
 
 
         if (filename.endswith(".mp3") or filename.endswith(".wav") or filename.endswith(".flac")):
-            cmd = "/usr/local/bin/ffmpeg -hide_banner -loglevel panic -i '" + current_file_path + "' -c:a pcm_s16le -ac 1 -ar 16000 -vn -dn -y '/audio_in/audio_in_16khz/" + noextension + "_16kHz.wav'"
+            cmd = "/usr/local/bin/ffmpeg -hide_banner -loglevel panic -i '" + current_file_path + "' -c:a pcm_s16le -ac 1 -ar 16000 -vn -dn -y '" + out_path_sub + noextension + "_16kHz.wav'"
         elif (filename.endswith(".mp4") or filename.endswith(".avi") or filename.endswith(".mov") or filename.endswith(".mpeg")): #or .avi, .mpeg, whatever.
-            cmd = "/usr/local/bin/ffmpeg -hide_banner -loglevel panic -i '" + current_file_path + "' -c:a pcm_s16le -ac 1 -ar 16000 -dn -y '/audio_in/audio_in_16khz/" + noextension + "_16kHz.wav'"
+            cmd = "/usr/local/bin/ffmpeg -hide_banner -loglevel panic -i '" + current_file_path + "' -c:a pcm_s16le -ac 1 -ar 16000 -dn -y '" + out_path_sub + noextension + "_16kHz.wav'"
 
         #print(cmd)
         ffmpeg_out = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True).communicate()[0]
