@@ -3,8 +3,8 @@
 ### References
 
   - Kaldi: [http://kaldi-asr.org/](http://kaldi-asr.org/)
-  - Pop Up Archive Kaldi release and install guide: [https://github.com/popuparchive/american-archive-kaldi](https://github.com/popuparchive/american-archive-kaldi)
-  - PUA model files: [https://sourceforge.net/projects/popuparchive-kaldi/files/](https://sourceforge.net/projects/popuparchive-kaldi/files/)
+  - AAPB Kaldi release and install guide: [https://github.com/dericed/american-archive-kaldi](https://github.com/dericed/american-archive-kaldi)
+  - Model files, original from Pop Up Archive: [https://sourceforge.net/projects/popuparchive-kaldi/files/](https://sourceforge.net/projects/popuparchive-kaldi/files/)
   - American Archive of Public Broadcasting (source of training set): [http://americanarchive.org/](http://americanarchive.org/)
 
 ### Setup notes
@@ -41,7 +41,11 @@ docker run -it --name kaldi_pua --volume C:\Users\***username_here***\Desktop\au
 
 ### Run speech-to-text batch
 
-- Add media files to your `/audio_in` shared volume (WAV, MP3, or MP4 video).
+- On your local machine, run `prep_files.py` (located in the Scripts folder) on the directory of files you wish to process. This will run on WAV, MP3, FLAC, AVI, MOV, MP4, MXF, and MKV files, and will drop the pre-processed  media files into the shared `/audio_in` directory. 
+
+```
+prep_files.py -i [target directory]
+```
 
 - In the Docker terminal session, enter the following commands to download and run the `setup.sh` script, which will start your job. When the batch is finished, your plain text and JSON transcript files will be written to `/audio_in/transcripts/`.
 
@@ -101,7 +105,9 @@ nj=2
 
 ### Manual method
 
-Alternately, you can prepare your files and start the batch run manually. Prepare the files using the `prep_files.py` script. This will create 16 kHz WAV files of any wav, mp3, flac, mp4, avi, mov, mkv, or mxf files in the target directory
+Alternately, you can prepare your files and start the batch run manually. Prepare the files using the `prep_files.py` script. This will create 16 kHz WAV files of any wav, mp3, flac, mp4, avi, mov, mkv, or mxf files in the target directory. 
+
+Manually prepping the files on your local computer is ideal, because it processing them through the docker container is very slow. In order to use this script you'll have to have `ffmpeg` installed.
 
 ```
 prep_files.py -i [target directory]
@@ -110,7 +116,7 @@ prep_files.py -i [target directory]
 - Start the batch transcription run like so.
 
 ```
-python /kaldi/egs/american-archive-kaldi/run_kaldi.py /kaldi/egs/american-archive-kaldi/sample_experiment/ /audio_in_16khz/
+python /kaldi/egs/american-archive-kaldi/run_kaldi.py /kaldi/egs/american-archive-kaldi/sample_experiment/ /audio_in/
 ```
 
 - When Kaldi finishes processing an audio file, plain text and JSON transcripts will be written here:
