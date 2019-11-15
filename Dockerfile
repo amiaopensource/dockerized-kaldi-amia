@@ -36,7 +36,7 @@ ENV LC_ALL en_US.UTF-8
 
 ## Downloading Kaldi and PUA resources
 RUN git clone https://github.com/kaldi-asr/kaldi.git kaldi --origin upstream && \
-cd /kaldi/egs/ && git clone https://github.com/popuparchive/american-archive-kaldi && \
+cd /kaldi/egs/ && git clone https://github.com/dericed/american-archive-kaldi && \
 cd /kaldi/egs/american-archive-kaldi/sample_experiment/ && \
 wget https://sourceforge.net/projects/popuparchive-kaldi/files/exp2.tar.gz && \
 tar -xvzf exp2.tar.gz
